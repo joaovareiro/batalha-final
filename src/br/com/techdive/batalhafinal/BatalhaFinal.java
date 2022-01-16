@@ -52,7 +52,6 @@ public class BatalhaFinal {
                             1 - Martelo
                             2 - Clava""");
                     int op2 = sc.nextInt();
-                    System.out.println(op2);
                     switch (op2) {
                         case 1 -> personagem = new Paladino(nomePersonagem, sexoPersonagem, Arma.Martelo);
                         case 2 -> personagem = new Paladino(nomePersonagem, sexoPersonagem, Arma.Clava);
@@ -343,18 +342,21 @@ public class BatalhaFinal {
     }
     private static boolean checkCombate(Jogador a, Inimigo b){
         boolean fim = false;
-        if(b.getPontosDeSaude()<0){
+        if(b.getPontosDeSaude()<=0){
             System.out.println("O inimigo não é páreo para o seu heroísmo, e jaz imóvel aos seus pés.");
             fim = true;
-        }else if(a.getPontosDeSaude()<0) {
-            if (a.getM().getNomeMotivacao().equals(Motivacao.Gloria.getNomeMotivacao()) && Jogador.getSexo(a).equals("M")) {
+        }else if(a.getPontosDeSaude()<=0) {
+            if (a.getM().getNomeMotivacao().equals("Gloria") && Jogador.getSexo(a).equals("M")) {
                 System.out.println("A glória que buscavas não será sua, e a cidade aguarda por seu próximo herói.");
+                fim = true;
                 System.exit(0);
-            } else if (a.getM().getNomeMotivacao().equals(Motivacao.Gloria.getNomeMotivacao()) && Jogador.getSexo(a).equals("F")) {
+            } else if (a.getM().getNomeMotivacao().equals("Gloria") && Jogador.getSexo(a).equals("F")) {
                 System.out.println("A glória que buscavas não será sua, e a cidade aguarda por sua próxima heroína.");
+                fim = true;
                 System.exit(0);
-            } else if (a.getM().getNomeMotivacao().equals(Motivacao.Vinganca.getNomeMotivacao())) {
+            } else if (a.getM().getNomeMotivacao().equals("Vinganca")) {
                 System.out.println("Não foi possível concluir sua vingança, e agora resta saber se alguém se vingará por você");
+                fim = true;
                 System.exit(0);
             }
         }

@@ -25,8 +25,12 @@ public class Lider extends Inimigo {
             System.out.printf("O inimigo acertou um ataque crítico! Você sofreu %d de dano e agora possui %d pontos de vida.\n", danoPotencial, defensor.getPontosDeSaude());
         } else {
             int danoAplicado = danoPotencial - defensor.getPontosDeDefesa();
-            defensor.setPontosDeSaude(defensor.getPontosDeSaude() - danoAplicado);
-            System.out.printf("O inimigo atacou! Você sofreu %d de dano e agora possui %d pontos de vida.\n", danoPotencial, defensor.getPontosDeSaude());
+            if(danoAplicado<=0){
+                System.out.println("O inimigo atacou! mas sua armadura te protegeu do ataque");
+            }else{
+                defensor.setPontosDeSaude(defensor.getPontosDeSaude() - danoAplicado);
+                System.out.printf("O inimigo atacou! Você sofreu %d de dano e agora possui %d pontos de vida.\n", danoAplicado, defensor.getPontosDeSaude());
+            }
         }
     }
 }
