@@ -305,6 +305,9 @@ public class BatalhaFinal {
                     repetir = false;
                 }else {
                     b.atacar(b, a);
+                    if(checkCombate(a,b)){
+                        repetir = false;
+                    }else{
                     System.out.println("""
                         O personagem seguira em frente ou ira desistir?\s
                         1 - Continuar
@@ -314,6 +317,7 @@ public class BatalhaFinal {
                         System.exit(0);
                     } else {
                         a.atacar(a, b);
+                        }
                     }
                 }
             }while (repetir);
@@ -324,6 +328,9 @@ public class BatalhaFinal {
                     repetir = false;
                 }else {
                     b.atacar(b, a);
+                    if(checkCombate(a,b)){
+                        repetir = false;
+                    }else{
                     System.out.println("""
                         O personagem seguira em frente ou ira desistir?\s
                         1 - Continuar
@@ -333,6 +340,7 @@ public class BatalhaFinal {
                         System.exit(0);
                     } else {
                         a.atacar(a, b);
+                        }
                     }
                 }
             }while (repetir);
