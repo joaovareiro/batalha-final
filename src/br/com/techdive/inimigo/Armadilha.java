@@ -13,7 +13,7 @@ public class Armadilha implements Atacante {
 
     public Armadilha() {
         pontosDeAtaque = 5;
-        Arma a = Arma.Armadilha;
+        a = Arma.Armadilha;
     }
 
     @Override
@@ -28,8 +28,13 @@ public class Armadilha implements Atacante {
             System.out.println("O ataque da armadilha pegou de raspão e você não sofreu dano.");
         }else{
             int danoAplicado = danoPotencial - defensor.getPontosDeDefesa();
-            defensor.setPontosDeSaude(defensor.getPontosDeSaude()-danoAplicado);
-            System.out.printf("Você sofreu %d de dano e agora possui %d pontos de vida.",danoAplicado,defensor.getPontosDeSaude());
+            if(danoAplicado<0) {
+                int danoAplicadoPositivo = danoAplicado * -1;
+                defensor.setPontosDeSaude(defensor.getPontosDeSaude() + danoAplicado);
+                System.out.printf("Você sofreu %d de dano e agora possui %d pontos de vida.", danoAplicadoPositivo, defensor.getPontosDeSaude());
+            }else{
+                System.out.printf("Sua armadura conseguiu parar o ataque");
+            }
         }
     }
 }

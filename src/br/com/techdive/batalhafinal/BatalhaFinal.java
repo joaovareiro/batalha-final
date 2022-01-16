@@ -8,8 +8,9 @@ import br.com.techdive.inimigo.*;
 import java.util.Scanner;
 
 public class BatalhaFinal {
+    static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+
         System.out.println("Seja bem vindo(a) à BATALHA FINAL!");
 
         boolean repetir = true;

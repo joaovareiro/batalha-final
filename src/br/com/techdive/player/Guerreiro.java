@@ -16,6 +16,14 @@ public class Guerreiro extends Jogador {
     }
 
     @Override
+    public String toString() {
+        return "Guerreiro{" +
+                "nome " + this.getNome() +
+                " sexo " + this.getSexoJogador() +
+                '}';
+    }
+
+    @Override
     public void atacar(Personagem atacante, Personagem defensor) {
 
         int danoPotencial = atacante.getPontosDeAtaque() + 5 + random.nextInt(20);
@@ -66,6 +74,8 @@ public class Guerreiro extends Jogador {
                 System.out.println("Não foi possível concluir sua vingança, e agora resta saber se alguém se vingará por você");
             }
         }
+
+
 
     }
 }
