@@ -9,8 +9,9 @@ public class Alquimista extends Inimigo {
     private Random random = new Random();
     private static final int SAUDE_MAXIMA = 100;
 
-    public Alquimista(Arma a) {
-        super(15, 10,a);
+    public Alquimista() {
+        super(15, 10,Arma.Cajado);
+        this.setPontosDeSaude(100);
     }
 
     @Override
@@ -22,15 +23,12 @@ public class Alquimista extends Inimigo {
             System.out.println("Seu inimigo errou o ataque");
 
         } else if (danoPotencial == atacante.getPontosDeAtaque() + 5 + 20) {
-            System.out.printf("O inimigo acertou um ataque crítico! Você sofreu %d de dano e agora possui %d pontos de vida.", danoPotencial, defensor.getPontosDeSaude());
+            defensor.setPontosDeSaude(defensor.getPontosDeSaude() - danoPotencial);
+            System.out.printf("O inimigo acertou um ataque crítico! Você sofreu %d de dano e agora possui %d pontos de vida.\n", danoPotencial, defensor.getPontosDeSaude());
         } else {
             int danoAplicado = danoPotencial - defensor.getPontosDeDefesa();
-            System.out.printf("O inimigo atacou! Você sofreu %d de dano e agora possui %d pontos de vida.", danoPotencial, defensor.getPontosDeSaude());
+            defensor.setPontosDeSaude(defensor.getPontosDeSaude() - danoAplicado);
+            System.out.printf("O inimigo atacou! Você sofreu %d de dano e agora possui %d pontos de vida.\n", danoPotencial, defensor.getPontosDeSaude());
         }
-        if(atacante.getPontosDeSaude()==0){
-            System.out.println("O inimigo não é páreo para o seu heroísmo, e jaz imóvel aos seus pés.");
-        }
-
     }
-
 }

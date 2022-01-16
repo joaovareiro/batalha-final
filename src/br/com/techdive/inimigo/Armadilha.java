@@ -25,15 +25,15 @@ public class Armadilha implements Atacante {
         int danoPotencial = pontosDeAtaque + Arma.Armadilha.getDano()+ random.nextInt(10);
 
         if(danoPotencial == pontosDeAtaque + Arma.Armadilha.getDano() + 1){
-            System.out.println("O ataque da armadilha pegou de raspão e você não sofreu dano.");
+            System.out.println("O ataque da armadilha pegou de raspão e você não sofreu dano.\n");
         }else{
             int danoAplicado = danoPotencial - defensor.getPontosDeDefesa();
-            if(danoAplicado<0) {
+            if(danoAplicado>0) {
                 int danoAplicadoPositivo = danoAplicado * -1;
                 defensor.setPontosDeSaude(defensor.getPontosDeSaude() + danoAplicado);
-                System.out.printf("Você sofreu %d de dano e agora possui %d pontos de vida.", danoAplicadoPositivo, defensor.getPontosDeSaude());
+                System.out.printf("Você sofreu %d de dano e agora possui %d pontos de vida.\n", danoAplicadoPositivo, defensor.getPontosDeSaude());
             }else{
-                System.out.printf("Sua armadura conseguiu parar o ataque");
+                System.out.printf("Sua armadura conseguiu parar o ataque\n");
             }
         }
     }

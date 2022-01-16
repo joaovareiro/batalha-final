@@ -13,4 +13,6 @@ public abstract class Inimigo extends Personagem implements Atacante {
         super(SAUDE_MAXIMA, pontosDeAtaque, pontosDeDefesa);
         this.a = a;
     }
+
+
 }

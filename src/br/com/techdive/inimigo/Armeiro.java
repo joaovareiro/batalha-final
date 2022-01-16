@@ -6,10 +6,12 @@ import br.com.techdive.enums.Arma;
 import java.util.Random;
 
 public class Armeiro extends Inimigo {
+    private static final int SAUDE_MAXIMA = 100;
     private Random random = new Random();
 
     public Armeiro() {
         super(10, 15,  Arma.Espada);
+        this.setPontosDeSaude(100);
     }
 
     @Override
@@ -21,14 +23,12 @@ public class Armeiro extends Inimigo {
             System.out.println("Seu inimigo errou o ataque");
 
         } else if (danoPotencial == atacante.getPontosDeAtaque() + 5 + 20) {
-            System.out.printf("O inimigo acertou um ataque crítico! Você sofreu %d de dano e agora possui %d pontos de vida.", danoPotencial, defensor.getPontosDeSaude());
+            defensor.setPontosDeSaude(defensor.getPontosDeSaude() - danoPotencial);
+            System.out.printf("O inimigo acertou um ataque crítico! Você sofreu %d de dano e agora possui %d pontos de vida.\n", danoPotencial, defensor.getPontosDeSaude());
         } else {
             int danoAplicado = danoPotencial - defensor.getPontosDeDefesa();
-            System.out.printf("O inimigo atacou! Você sofreu %d de dano e agora possui %d pontos de vida.", danoPotencial, defensor.getPontosDeSaude());
+            defensor.setPontosDeSaude(defensor.getPontosDeSaude() - danoAplicado);
+            System.out.printf("O inimigo atacou! Você sofreu %d de dano e agora possui %d pontos de vida.\n", danoPotencial, defensor.getPontosDeSaude());
         }
-        if(atacante.getPontosDeSaude()==0){
-            System.out.println("O inimigo não é páreo para o seu heroísmo, e jaz imóvel aos seus pés.");
-        }
-
     }
 }

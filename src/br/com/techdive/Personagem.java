@@ -26,4 +26,8 @@ public class Personagem {
     public void setPontosDeSaude(int pontosDeSaude) {
         this.pontosDeSaude = pontosDeSaude;
     }
+
+    public void setPontosDeDefesa(int pontosDeDefesa) {
+        this.pontosDeDefesa = pontosDeDefesa;
+    }
 }

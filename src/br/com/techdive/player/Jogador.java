@@ -20,6 +20,7 @@ public abstract class Jogador extends Personagem implements Atacante {
 
     public Jogador(int pontosDeAtaque, int pontosDeDefesa, String nome, String sexo, Arma a){
         super(SAUDE_MAXIMA, pontosDeAtaque, pontosDeDefesa);
+        this.a = a;
             if(nome.isEmpty() || nome.isBlank()) {
                 System.err.println("O nome do personagem nao pode ser vazio.");
                 solicitarNome();
@@ -43,7 +44,6 @@ public abstract class Jogador extends Personagem implements Atacante {
             }else {
                 this.nome = nome;
                 this.sexo = sexo;
-                this.a = a;
             }
     }
 
